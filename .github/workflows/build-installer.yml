@@ -40,13 +40,13 @@ jobs:
       - name: Upload the weasis package for building the native distribution
         uses: actions/upload-artifact@v4
         with:
-          name: weasis-native-${{ env.WEASIS_VERSION }}
-          path: weasis-distributions/target/native-dist/weasis-native.zip
+          name: lynx-native-${{ env.WEASIS_VERSION }}
+          path: weasis-distributions/target/native-dist/lynx-native.zip
 
   jpackage:
     env:
       JDK_MODULES: "java.base,java.compiler,java.datatransfer,java.net.http,java.desktop,java.logging,java.management,java.prefs,java.xml,jdk.localedata,jdk.charsets,jdk.crypto.ec,jdk.crypto.cryptoki,jdk.unsupported,jdk.jdwp.agent,java.sql"
-      NAME: "Weasis"
+      NAME: "Lynx"
       IDENTIFIER: "org.weasis.launcher"
       WEASIS_INPUT: "native-dist/weasis-native/bin-dist"
       WEASIS_OUTPUT: "output-dist"
@@ -77,16 +77,16 @@ jobs:
           distribution: 'temurin'
           java-version: '24'
 
-      - name: Download weasis-native
+      - name: Download linx-native
         uses: actions/download-artifact@v4
         with:
-          name: weasis-native-${{ env.WEASIS_VERSION }}
+          name: lynx-native-${{ env.WEASIS_VERSION }}
           path: native-dist
 
       - name: Unzip the native package version
         shell: bash
         run: |
-          unzip -o "native-dist/weasis-native.zip" -d "native-dist/weasis-native"
+          unzip -o "native-dist/lynx-native.zip" -d "native-dist/lynx-native"
 
       - name: Remove binaries not related to the current architecture
         shell: bash
@@ -119,7 +119,7 @@ jobs:
       - name: Build app binary with jpackage
         shell: bash
         env:
-          RES: "native-dist/weasis-native/build/script/resources/${{ matrix.wsystem }}"
+          RES: "native-dist/lynx-native/build/script/resources/${{ matrix.wsystem }}"
         run: |
           machine=${{ matrix.wsystem }}
           if [ "$machine" = "macosx" ] ; then
@@ -165,8 +165,8 @@ jobs:
       - name: Build package with jpackage
         shell: bash
         env:
-          RES: "native-dist/weasis-native/build/script/resources/${{ matrix.wsystem }}"
-          FILE_ASSOC: "native-dist/weasis-native/build/script/file-associations.properties"
+          RES: "native-dist/lynx-native/build/script/resources/${{ matrix.wsystem }}"
+          FILE_ASSOC: "native-dist/lynx-native/build/script/file-associations.properties"
           VENDOR: "Novigo Technology"
           COPYRIGHT: "© 2024-2025 Novigo Technology"
         run: |
