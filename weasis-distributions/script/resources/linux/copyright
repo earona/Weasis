@@ -1,6 +1,6 @@
 Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
-Upstream-Name: weasis
-Upstream-Contact: Nicolas Roduit
+Upstream-Name: lynx
+Upstream-Contact: Novigo Technology
 Source: https://github.com/nroduit/Weasis
 
 Files: *
