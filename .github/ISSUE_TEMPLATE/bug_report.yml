@@ -42,7 +42,7 @@ body:
    id: logs
    attributes:
     label: Relevant log output
-    description: Please copy and paste any relevant [log output from Weasis](https://nroduit.github.io/en/tutorials/logging/) or from the DICOM archive.
+    description: Please copy and paste any relevant [log output from Weasis](https:/doc.novigo.com.ar/lynx/en/tutorials/logging/) or from the DICOM archive.
     placeholder: Paste any relevant log output
     render: shell
  - type: textarea

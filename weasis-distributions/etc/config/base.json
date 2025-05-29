@@ -370,14 +370,14 @@
     },
     {
       "code": "weasis.help.online",
-      "value": "https://nroduit.github.io/en/tutorials/",
+      "value": "https:/doc.novigo.com.ar/lynx/en/tutorials/",
       "description": "The online tutorial",
       "type": "A",
       "category": "DOC"
     },
     {
       "code": "weasis.help.shortcuts",
-      "value": "https://nroduit.github.io/en/basics/shortcuts",
+      "value": "https:/doc.novigo.com.ar/lynx/en/basics/shortcuts",
       "description": "Provides a list of available shortcuts.",
       "type": "A",
       "category": "DOC"

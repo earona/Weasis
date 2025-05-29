@@ -1,7 +1,7 @@
 blank_issues_enabled: true
 contact_links:
   - name: Frequently Asked Questions (FAQs)
-    url: https://nroduit.github.io/en/faq
+    url: https:/doc.novigo.com.ar/lynx/en/faq
     about: Frequently Asked Questions (FAQs) on Weasis
   - name: Questions or ideas
     url: https://github.com/nroduit/Weasis/discussions
