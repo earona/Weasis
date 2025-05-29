@@ -17,7 +17,7 @@
     <connection>scm:git:git@github.com:nroduit/Weasis.git</connection>
     <developerConnection>scm:git:https://weasis.repositoryhosting.com/git/weasis/weasis-dev.git
     </developerConnection>
-    <url>https://github.com/nroduit/Weasis</url>
+    <url>https://github.com/nroduit/Lynx</url>
   </scm>
   <properties>
     <sonar.moduleKey>${project.artifactId}</sonar.moduleKey>
