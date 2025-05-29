@@ -273,7 +273,7 @@ if [ "$PACKAGE" = "YES" ] ; then
       $JPKGCMD --type "$installerType" --app-image "$IMAGE_PATH" --dest "$OUTPUT_PATH"  --name "$NAME" --resource-dir "$RES" \
       --license-file "$INPUT_PATH/Licence.txt" --description "Weasis DICOM viewer" --vendor "$VENDOR" \
       --copyright "$COPYRIGHT" --app-version "$WEASIS_CLEAN_VERSION" --file-associations "${curPath}/file-associations.properties" \
-      --linux-app-release "$REVISON_INC" --linux-package-name "weasis" --linux-deb-maintainer "Novigo Technology" --linux-rpm-license-type "EPL-2.0" \
+      --linux-app-release "$REVISON_INC" --linux-package-name "lynx" --linux-deb-maintainer "Novigo Technology" --linux-rpm-license-type "EPL-2.0" \
       --linux-menu-group "Viewer;MedicalSoftware;Graphics;" --linux-app-category "science" --linux-package-deps "${DEPENDENCIES}" \
       --linux-shortcut "${tmpArgs[@]}" --verbose
       if [ -d "${TEMP_PATH}" ] ; then
