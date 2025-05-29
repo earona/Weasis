@@ -299,7 +299,7 @@
                 </artifactItem>
 
                 <!-- ===================================== -->
-                <!-- Weasis Core bundle -->
+                <!-- Lynx Core bundle -->
                 <!-- ===================================== -->
                 <artifactItem>
                   <groupId>org.weasis.core</groupId>
@@ -309,7 +309,7 @@
                 </artifactItem>
 
                 <!-- ===================================== -->
-                <!-- Weasis OpenCV bundles -->
+                <!-- Lynx OpenCV bundles -->
                 <!-- ===================================== -->
                 <artifactItem>
                   <groupId>org.weasis.core</groupId>
@@ -350,7 +350,7 @@
 
 
                 <!-- ===================================== -->
-                <!-- Weasis Imageio bundles -->
+                <!-- Lynx Imageio bundles -->
                 <!-- ===================================== -->
                 <artifactItem>
                   <groupId>org.weasis.imageio</groupId>
@@ -361,7 +361,7 @@
 
 
                 <!-- ===================================== -->
-                <!-- Weasis 3D Modules -->
+                <!-- Lynx 3D Modules -->
                 <!-- ===================================== -->
                 <artifactItem>
                   <groupId>org.weasis.dicom.3d</groupId>
@@ -407,7 +407,7 @@
                 </artifactItem>
 
                 <!-- ===================================== -->
-                <!-- Weasis Base bundles -->
+                <!-- Lynx Base bundles -->
                 <!-- ===================================== -->
                 <artifactItem>
                   <groupId>org.weasis.base</groupId>
@@ -429,7 +429,7 @@
                 </artifactItem>
 
                 <!-- ===================================== -->
-                <!-- Weasis DICOM bundles -->
+                <!-- Lynx DICOM bundles -->
                 <!-- ===================================== -->
                 <artifactItem>
                   <groupId>org.weasis.dicom</groupId>
@@ -493,7 +493,7 @@
                 </artifactItem>
 
                 <!-- ===================================== -->
-                <!-- Weasis Acquisition bundles -->
+                <!-- Lynx Acquisition bundles -->
                 <!-- ===================================== -->
                 <artifactItem>
                   <groupId>org.weasis.acquire</groupId>

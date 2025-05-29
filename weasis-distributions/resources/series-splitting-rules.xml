@@ -29,7 +29,7 @@
     type is [contains, notContains, containsIgnoreCase, notContainsIgnoreCase] only one value is accepted  -->
 
   <!-- Uncomment to override the configuration which is already defined in
-    Weasis source code -->
+    Lynx source code -->
 
   <!--
   <modality name="DEFAULT">

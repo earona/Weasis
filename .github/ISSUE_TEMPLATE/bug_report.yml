@@ -23,7 +23,7 @@ body:
  - type: input
    id: version
    attributes:
-    label: What version of Weasis are you running?
+    label: What version of Lynx are you running?
     placeholder: ex. *4.1.2* (from the main window title) or commit *1e3190a*...
    validations:
     required: true
@@ -50,5 +50,5 @@ body:
    attributes:
     label: Additional contextual elements
     description: Add more contextual information about the problem (e.g. for network issue, give information about anti-virus or network security software, firewall, proxy...).
-    placeholder: List of contextual elements (e.g. OS version, type of Weasis installer, Graphic card, OpenGL version...)
+    placeholder: List of contextual elements (e.g. OS version, type of Lynx installer, Graphic card, OpenGL version...)
 

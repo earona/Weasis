@@ -4,7 +4,7 @@ base: core24
 version: '4.6.0'
 summary: A free/libre/open medical DICOM viewer
 description: |
-  Weasis is a multipurpose standalone and web-based DICOM viewer with 
+  Lynx is a multipurpose standalone and web-based DICOM viewer with 
   a highly modular architecture. It is a very popular clinical viewer 
   used in healthcare by hospitals, health networks, multicenter research 
   trials, and patients.
@@ -96,7 +96,7 @@ parts:
     source-type: local
     source-subdir: weasis-distributions
     override-build: |
-      echo "Preparing Weasis build environment..."
+      echo "Preparing Lynx build environment..."
       WEASIS_REMOTE=$(echo ${SNAPCRAFT_PART_INSTALL} | sed 's|parts/weasis/|parts/remote-weasis-build/|g')
       WEASIS_JDK=$(echo ${SNAPCRAFT_PART_INSTALL} | sed 's|parts/weasis/|parts/remote-openjdk/|g')
       cp -Rf ${WEASIS_REMOTE}/lynx-native ${SNAPCRAFT_PART_BUILD}/

@@ -180,7 +180,7 @@
       <version>${logback.version}</version>
     </dependency>
 
-    <!-- Dependencies below are provided for debugging Weasis from IDE (by launching WeasisLauncher) -->
+    <!-- Dependencies below are provided for debugging Lynx from IDE (by launching WeasisLauncher) -->
     <!-- No direct dependency should be made with weasis-launcher -->
     <dependency>
       <groupId>org.apache.felix</groupId>

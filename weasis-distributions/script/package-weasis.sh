@@ -135,7 +135,7 @@ WEASIS_VERSION=$(grep -i "weasis.version=" "${curPath}/build.properties" | sed '
 
 echo System        = "${ARC_OS}"
 echo JDK path        = "${JDK_PATH_UNIX}"
-echo Weasis version  = "${WEASIS_VERSION}"
+echo Lynx version  = "${WEASIS_VERSION}"
 echo Input path      = "${INPUT_PATH}"
 if [ "$machine" = "windows" ]
 then

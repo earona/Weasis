@@ -256,7 +256,7 @@ jobs:
       - name: Set up Docker Buildx for multi-arch
         uses: docker/setup-buildx-action@v3
 
-      - name: Run Docker container to package Weasis for ${{ matrix.arch }}
+      - name: Run Docker container to package Lynx for ${{ matrix.arch }}
         run: |
           ARCH="${{ matrix.arch }}"
           
@@ -270,7 +270,7 @@ jobs:
           docker buildx build --load --platform "${ARCH}" -t weasis/builder:latest native-dist/lynx-native/build/docker
 
           # Run Docker container to package weasis
-          echo "Running Docker container to package Weasis for ${ARCH}..."
+          echo "Running Docker container to package Lynx for ${ARCH}..."
           docker run --platform "${ARCH}" --rm \
             -v "$(pwd)/native-dist/lynx-native:/work" \
             weasis/builder:latest \

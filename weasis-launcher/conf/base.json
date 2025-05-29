@@ -298,7 +298,7 @@
     {
       "code": "weasis.profile",
       "value": "default",
-      "description": "Application profile: when no profile name is provided, the value is \"default\".\nIt allows having a custom preferences' directory on the client side (will not share preferences with other Weasis instances)",
+      "description": "Application profile: when no profile name is provided, the value is \"default\".\nIt allows having a custom preferences' directory on the client side (will not share preferences with other Lynx instances)",
       "type": "AP",
       "category": "LAUNCH"
     },
@@ -333,7 +333,7 @@
     {
       "code": "weasis.show.disclaimer",
       "value": "false",
-      "description": "Show a disclaimer at the first launch of Weasis (requires to be accepted to start the application)",
+      "description": "Show a disclaimer at the first launch of Lynx (requires to be accepted to start the application)",
       "type": "A",
       "javaType": "BOOLEAN",
       "category": "LAUNCH"
@@ -357,7 +357,7 @@
     {
       "code": "weasis.portable.dicom.directory",
       "value": "dicom,DICOM,IMAGES,images",
-      "description": "For loading automatically DICOMs in the portable Weasis distribution (CD/DVD).\nComma-separated directories relative to the Weasis executable file.",
+      "description": "For loading automatically DICOMs in the portable Lynx distribution (CD/DVD).\nComma-separated directories relative to the Lynx executable file.",
       "type": "A",
       "category": "LAUNCH"
     },
