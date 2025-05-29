@@ -12,7 +12,7 @@ PACKAGE=YES
 # jdk.localedata => other locale (en_us) data are included in the jdk.localedata
 # jdk.jdwp.agent => package for debugging agent
 JDK_MODULES="java.base,java.compiler,java.datatransfer,java.net.http,java.desktop,java.logging,java.management,java.prefs,java.xml,jdk.localedata,jdk.charsets,jdk.crypto.ec,jdk.crypto.cryptoki,jdk.unsupported,jdk.jdwp.agent,java.sql"
-NAME="Weasis"
+NAME="Lynx"
 IDENTIFIER="org.weasis.launcher"
 
 # Aux functions:
