@@ -57,7 +57,7 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - { os: ubuntu-latest, platform: x64, wsystem: linux, warc: x86-64 }
+          #- { os: ubuntu-latest, platform: x64, wsystem: linux, warc: x86-64 }
           # - { os: macos-13, platform: x64, wsystem: macosx, warc: x86-64 }
           # - { os: macos-latest, platform: arm64, wsystem: macosx, warc: aarch64 }
           - { os: windows-latest, platform: x64, wsystem: windows, warc: x86-64 }
@@ -219,14 +219,84 @@ jobs:
       - name: "Add checksum sha256 file"
         shell: bash
         run: |
-            for file in "final-dist/*"; do
-              if [[ -f "$file" ]]; then
-                sha256sum "$file" >> "$file.sha256"
-              fi
-            done
+          for file in "final-dist/*"; do
+            if [[ -f "$file" ]]; then
+              sha256sum "$file" >> "$file.sha256"
+            fi
+          done
 
       - name: Upload the installer
         uses: actions/upload-artifact@v4
         with:
           name: ${{ env.APP_ARTIFACT }}
           path: final-dist
+
+  linux-multiarch:
+    needs: build
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        arch: ["linux/amd64", "linux/arm64"]
+
+    steps:
+      - name: Download weasis-native
+        uses: actions/download-artifact@v4
+        with:
+          name: weasis-native-${{ needs.build.outputs.version }}
+          path: native-dist
+
+      - name: Unzip the native package version
+        shell: bash
+        run: |
+          unzip -o "native-dist/weasis-native.zip" -d "native-dist/weasis-native"
+
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v3
+
+      - name: Set up Docker Buildx for multi-arch
+        uses: docker/setup-buildx-action@v3
+
+      - name: Run Docker container to package Weasis for ${{ matrix.arch }}
+        run: |
+          ARCH="${{ matrix.arch }}"
+          
+          # Prepare required directories
+          echo "Preparing bin-dist for ${ARCH}..."
+          rm -rf bin-dist
+          cp -r native-dist/weasis-native/bin-dist .
+
+          # Build Docker image for the current architecture
+          echo "Building Docker image for ${ARCH}..."
+          docker buildx build --load --platform "${ARCH}" -t weasis/builder:latest native-dist/weasis-native/build/docker
+
+          # Run Docker container to package weasis
+          echo "Running Docker container to package Weasis for ${ARCH}..."
+          docker run --platform "${ARCH}" --rm \
+            -v "$(pwd)/native-dist/weasis-native:/work" \
+            weasis/builder:latest \
+            bash -c "export JAVA_TOOL_OPTIONS=-Djdk.lang.Process.launchMechanism=vfork; \
+            cd /work/installer; /work/build/script/package-weasis.sh --jdk /opt/java/openjdk --temp /work/temp"
+
+          # Copy outputs to the architecture-specific folder
+          mkdir -p native-dist/weasis-native/output-dist/${ARCH}
+          cp -r native-dist/weasis-native/installer/* native-dist/weasis-native/output-dist/${ARCH}
+
+        timeout-minutes: 20
+        continue-on-error: false
+
+      #      - name: Upload .deb and .rpm to GitHub Release
+      #        uses: softprops/action-gh-release@v2
+      #        with:
+      #          files: |
+      #            build-output/output/*.deb
+      #            build-output/output/*.rpm
+      #        env:
+      #          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+
+      - name: Upload Linux multi-arch installers
+        uses: actions/upload-artifact@v4
+        with:
+          name: linux-multiarch-installers-${{ matrix.arch }}
+          path: native-dist/weasis-native/output-dist/${{ matrix.arch }}
+
