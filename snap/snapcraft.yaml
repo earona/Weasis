@@ -1,5 +1,5 @@
 name: weasis
-title: Weasis
+title: Lynx
 base: core24
 version: '4.6.0'
 summary: A free/libre/open medical DICOM viewer
