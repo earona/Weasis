@@ -247,7 +247,7 @@
     {
       "code": "audit.log",
       "value": "false",
-      "description": "Audit log for usage statistics in Weasis",
+      "description": "Audit log for usage statistics in Lynx",
       "type": "A",
       "javaType": "BOOLEAN",
       "category": "LOG"
@@ -255,7 +255,7 @@
     {
       "code": "weasis.version",
       "value": "${app.version}",
-      "description": "Application version. This property is mandatory to launch Weasis",
+      "description": "Application version. This property is mandatory to launch Lynx",
       "type": "A",
       "category": "LOCK"
     },
