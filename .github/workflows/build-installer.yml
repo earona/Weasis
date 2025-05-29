@@ -40,17 +40,17 @@ jobs:
       - name: Upload the weasis package for building the native distribution
         uses: actions/upload-artifact@v4
         with:
-          name: weasis-native-${{ env.WEASIS_VERSION }}
-          path: weasis-distributions/target/native-dist/weasis-native.zip
+          name: lynx-native-${{ env.WEASIS_VERSION }}
+          path: weasis-distributions/target/native-dist/lynx-native.zip
 
   jpackage:
     env:
       JDK_MODULES: "java.base,java.compiler,java.datatransfer,java.net.http,java.desktop,java.logging,java.management,java.prefs,java.xml,jdk.localedata,jdk.charsets,jdk.crypto.ec,jdk.crypto.cryptoki,jdk.unsupported,jdk.jdwp.agent,java.sql"
       NAME: "Weasis"
       IDENTIFIER: "org.weasis.launcher"
-      WEASIS_INPUT: "native-dist/weasis-native/bin-dist"
+      WEASIS_INPUT: "native-dist/lynx-native/bin-dist"
       WEASIS_OUTPUT: "output-dist"
-      WEASIS_INPUT_BIN: "native-dist/weasis-native/bin-dist/weasis"
+      WEASIS_INPUT_BIN: "native-dist/lynx-native/bin-dist/weasis"
     runs-on: ${{ matrix.os }}
     needs: build
     strategy:
@@ -77,16 +77,16 @@ jobs:
           distribution: 'temurin'
           java-version: '24'
 
-      - name: Download weasis-native
+      - name: Download lynx-native
         uses: actions/download-artifact@v4
         with:
-          name: weasis-native-${{ env.WEASIS_VERSION }}
+          name: lynx-native-${{ env.WEASIS_VERSION }}
           path: native-dist
 
       - name: Unzip the native package version
         shell: bash
         run: |
-          unzip -o "native-dist/weasis-native.zip" -d "native-dist/weasis-native"
+          unzip -o "native-dist/lynx-native.zip" -d "native-dist/lynx-native"
 
       - name: Remove binaries not related to the current architecture
         shell: bash
@@ -119,7 +119,7 @@ jobs:
       - name: Build app binary with jpackage
         shell: bash
         env:
-          RES: "native-dist/weasis-native/build/script/resources/${{ matrix.wsystem }}"
+          RES: "native-dist/lynx-native/build/script/resources/${{ matrix.wsystem }}"
         run: |
           machine=${{ matrix.wsystem }}
           if [ "$machine" = "macosx" ] ; then
@@ -165,8 +165,8 @@ jobs:
       - name: Build package with jpackage
         shell: bash
         env:
-          RES: "native-dist/weasis-native/build/script/resources/${{ matrix.wsystem }}"
-          FILE_ASSOC: "native-dist/weasis-native/build/script/file-associations.properties"
+          RES: "native-dist/lynx-native/build/script/resources/${{ matrix.wsystem }}"
+          FILE_ASSOC: "native-dist/lynx-native/build/script/file-associations.properties"
           VENDOR: "Novigo Technology"
           COPYRIGHT: "© 2009-2025 Novigo Technology"
         run: |
@@ -239,16 +239,16 @@ jobs:
         arch: ["linux/amd64", "linux/arm64"]
 
     steps:
-      - name: Download weasis-native
+      - name: Download lynx-native
         uses: actions/download-artifact@v4
         with:
-          name: weasis-native-${{ needs.build.outputs.version }}
+          name: lynx-native-${{ needs.build.outputs.version }}
           path: native-dist
 
       - name: Unzip the native package version
         shell: bash
         run: |
-          unzip -o "native-dist/weasis-native.zip" -d "native-dist/weasis-native"
+          unzip -o "native-dist/lynx-native.zip" -d "native-dist/lynx-native"
 
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v3
@@ -263,23 +263,23 @@ jobs:
           # Prepare required directories
           echo "Preparing bin-dist for ${ARCH}..."
           rm -rf bin-dist
-          cp -r native-dist/weasis-native/bin-dist .
+          cp -r native-dist/lynx-native/bin-dist .
 
           # Build Docker image for the current architecture
           echo "Building Docker image for ${ARCH}..."
-          docker buildx build --load --platform "${ARCH}" -t weasis/builder:latest native-dist/weasis-native/build/docker
+          docker buildx build --load --platform "${ARCH}" -t weasis/builder:latest native-dist/lynx-native/build/docker
 
           # Run Docker container to package weasis
           echo "Running Docker container to package Weasis for ${ARCH}..."
           docker run --platform "${ARCH}" --rm \
-            -v "$(pwd)/native-dist/weasis-native:/work" \
+            -v "$(pwd)/native-dist/lynx-native:/work" \
             weasis/builder:latest \
             bash -c "export JAVA_TOOL_OPTIONS=-Djdk.lang.Process.launchMechanism=vfork; \
             cd /work/installer; /work/build/script/package-weasis.sh --jdk /opt/java/openjdk --temp /work/temp"
 
           # Copy outputs to the architecture-specific folder
-          mkdir -p native-dist/weasis-native/output-dist/${ARCH}
-          cp -r native-dist/weasis-native/installer/* native-dist/weasis-native/output-dist/${ARCH}
+          mkdir -p native-dist/lynx-native/output-dist/${ARCH}
+          cp -r native-dist/lynx-native/installer/* native-dist/lynx-native/output-dist/${ARCH}
 
         timeout-minutes: 20
         continue-on-error: false
@@ -298,5 +298,5 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: linux-multiarch-installers-${{ matrix.arch }}
-          path: native-dist/weasis-native/output-dist/${{ matrix.arch }}
+          path: native-dist/lynx-native/output-dist/${{ matrix.arch }}
 

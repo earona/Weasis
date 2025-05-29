@@ -3,7 +3,7 @@
 ##### Prerequisites for building multi-architecture binaries #####
 # Required a linux system with amd64 architecture (examples based on Ubuntu)
 # Required Docker and qemu (see https://docs.docker.com/desktop/multi-arch/)
-# The script must be executed after downloading or building weasis-native.zip
+# The script must be executed after downloading or building lynx-native.zip
 
 ##### Install prerequisites #####
 # Install docker: https://docs.docker.com/engine/install/
@@ -12,8 +12,8 @@
 ### docker run --rm --privileged multiarch/qemu-user-static --reset -p yes
 
 ##### Update docker images
-# unzip weasis-native.zip
-# cd weasis-native/build/docker
+# unzip lynx-native.zip
+# cd lynx-native/build/docker
 # docker image rm -f weasis/builder:latest
 # docker buildx build --load --platform linux/amd64 -t weasis/builder:latest .
 # sudo ./build-linux-installers.sh -a linux/amd64

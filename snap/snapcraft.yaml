@@ -81,11 +81,11 @@ parts:
       - zlib1g
       - libstdc++6
       - libgcc1
-    #source: weasis-distributions/target/native-dist/weasis-native.zip
-    source: https://github.com/nroduit/Weasis/releases/download/v4.6.0/weasis-native.zip
+    #source: weasis-distributions/target/native-dist/lynx-native.zip
+    source: https://github.com/nroduit/Weasis/releases/download/v4.6.0/lynx-native.zip
     source-checksum: sha256/a3a73591274fe9f86bb520064355541423fbc68ef7218f98aa8110cb3cf722eb
     organize:
-      '*': weasis-native/
+      '*': lynx-native/
     override-stage: 'true'
     override-prime: 'true'
 
@@ -99,8 +99,8 @@ parts:
       echo "Preparing Weasis build environment..."
       WEASIS_REMOTE=$(echo ${SNAPCRAFT_PART_INSTALL} | sed 's|parts/weasis/|parts/remote-weasis-build/|g')
       WEASIS_JDK=$(echo ${SNAPCRAFT_PART_INSTALL} | sed 's|parts/weasis/|parts/remote-openjdk/|g')
-      cp -Rf ${WEASIS_REMOTE}/weasis-native ${SNAPCRAFT_PART_BUILD}/
-      weasis-native/build/script/package-weasis.sh --output ${SNAPCRAFT_PART_INSTALL} --no-installer --jdk ${WEASIS_JDK}/java-runtime
+      cp -Rf ${WEASIS_REMOTE}/lynx-native ${SNAPCRAFT_PART_BUILD}/
+      lynx-native/build/script/package-weasis.sh --output ${SNAPCRAFT_PART_INSTALL} --no-installer --jdk ${WEASIS_JDK}/java-runtime
       mv ${SNAPCRAFT_PART_INSTALL}/Weasis/* ${SNAPCRAFT_PART_INSTALL}/
       rm -rf ${SNAPCRAFT_PART_INSTALL}/Weasis
       snapcraftctl build

@@ -39,7 +39,7 @@ echo " --help -h
 Print the usage text with a list and description of each valid
 option the output stream, and exit"
 echo " --input -i
-Path of the weasis-native directory"
+Path of the lynx-native directory"
 echo " --output -o
 Path of the base output directory.
 Default value is the current directory"
@@ -100,7 +100,7 @@ echo "rootdir: $rootdir"
 if [ ! -d "${INPUT_PATH}" ] ; then
   INPUT_PATH="${rootdir}/bin-dist"
   if [ ! -d "${INPUT_PATH}" ] ; then
-    INPUT_PATH="${rootdir}/weasis-distributions/target/native-dist/weasis-native/bin-dist"
+    INPUT_PATH="${rootdir}/weasis-distributions/target/native-dist/lynx-native/bin-dist"
   fi
 fi
 
