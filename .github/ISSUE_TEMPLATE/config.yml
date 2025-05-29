@@ -4,7 +4,7 @@ contact_links:
     url: https:/doc.novigo.com.ar/lynx/en/faq
     about: Frequently Asked Questions (FAQs) on Weasis
   - name: Questions or ideas
-    url: https://github.com/nroduit/Weasis/discussions
+    url: https://github.com/NovigoTechnology/Lynx/discussions
     about: if you have questions, ideas or if you want to tell something about Weasis
   - name: Google group
     url: https://groups.google.com/g/dcm4che

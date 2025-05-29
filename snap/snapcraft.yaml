@@ -82,7 +82,7 @@ parts:
       - libstdc++6
       - libgcc1
     #source: weasis-distributions/target/native-dist/lynx-native.zip
-    source: https://github.com/nroduit/Weasis/releases/download/v4.6.0/lynx-native.zip
+    source: https://github.com/NovigoTechnology/Lynx/releases/download/v4.6.0/lynx-native.zip
     source-checksum: sha256/a3a73591274fe9f86bb520064355541423fbc68ef7218f98aa8110cb3cf722eb
     organize:
       '*': lynx-native/
