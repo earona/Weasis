@@ -29,12 +29,16 @@ LAUNCHER_AS_SERVICE_COMMANDS_UNINSTALL
 
 if command_exists desktop_uninstall_default_mime_handler; then
     desktop_uninstall_default_mime_handler weasis-Weasis.desktop x-scheme-handler/weasis
+    desktop_uninstall_default_mime_handler lynx-Lynx.desktop x-scheme-handler/lynx
+    desktop_uninstall_default_mime_handler lynx-Lynx.desktop x-scheme-handler/weasis
 else
     echo "Warning: 'desktop_uninstall_default_mime_handler' not found. Skipping MIME handler uninstallation." >&2
 fi
 
 rm -f /etc/opt/chrome/policies/managed/weasis.json
 rm -f /etc/chromium/policies/managed/weasis.json
+rm -f /etc/opt/chrome/policies/managed/lynx.json
+rm -f /etc/chromium/policies/managed/lynx.json
     ;;
 
     failed-upgrade)

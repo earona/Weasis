@@ -93,8 +93,12 @@ mkdir -p /etc/opt/chrome/policies/managed/
     echo '{
     "URLAllowlist": ["weasis://*"]
 }' > /etc/opt/chrome/policies/managed/weasis.json 
+    echo '{
+    "URLAllowlist": ["lynx://*"]
+}' > /etc/opt/chrome/policies/managed/lynx.json 
 mkdir -p /etc/chromium/policies/managed/
 cp /etc/opt/chrome/policies/managed/weasis.json /etc/chromium/policies/managed/weasis.json
+cp /etc/opt/chrome/policies/managed/lynx.json /etc/chromium/policies/managed/lynx.json
 
 %preun
 package_type=rpm
@@ -106,5 +110,7 @@ LAUNCHER_AS_SERVICE_COMMANDS_UNINSTALL
 
 rm -f /etc/opt/chrome/policies/managed/weasis.json 
 rm -f /etc/chromium/policies/managed/weasis.json
+rm -f /etc/opt/chrome/policies/managed/lynx.json 
+rm -f /etc/chromium/policies/managed/lynx.json
 
 %clean
