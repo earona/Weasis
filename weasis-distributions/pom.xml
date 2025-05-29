@@ -12,7 +12,7 @@
   <modelVersion>4.0.0</modelVersion>
   <artifactId>weasis-distributions</artifactId>
   <packaging>pom</packaging>
-  <name>Weasis Distributions (Standalone and WEB)</name>
+  <name>Lynx Distributions (Standalone and WEB)</name>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -22,7 +22,7 @@
     <tmp.bundle.dir>${project.build.directory}/tmp/bundle</tmp.bundle.dir>
 
     <xz.ext/>
-    <windowsName>weasis-native</windowsName>
+    <windowsName>lynx-native</windowsName>
   </properties>
 
   <!-- Override for getting snapshot -->
@@ -102,7 +102,7 @@
               </goals>
               <configuration>
                 <attach>true</attach>
-                <finalName>weasis-native</finalName>
+                <finalName>lynx-native</finalName>
                 <appendAssemblyId>false</appendAssemblyId>
                 <outputDirectory>${project.build.directory}/native-dist</outputDirectory>
                 <descriptors>

@@ -107,6 +107,7 @@
       <ComponentGroupRef Id="Shortcuts"/>
       <ComponentGroupRef Id="Files"/>
       <ComponentGroupRef Id="FileAssociations"/>
+      <!-- <ComponentGroupRef Id="FragmentOsCondition"/> -->
       <ComponentRef Id="URIHandlerRegistry" />
     </Feature>
 
